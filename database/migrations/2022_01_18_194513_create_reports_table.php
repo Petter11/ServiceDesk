@@ -18,7 +18,9 @@ class CreateReportsTable extends Migration
             $table->string('titulo',128);
             $table->text('descricao');
             $table->string('classe', 48);
-            $table->char('status', 1)->default(0)->comment('E - Correcao / C - Corrigindo');
+            $table->char('status', 1)
+            ->comment('A - Aguardando / E - Correcao / C - Corrigindo')
+            ->default('A');
             $table->string('imagem', 256)->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('restrict')->onDelete('restrict');

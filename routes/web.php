@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 use App\Http\Controllers\ReportController; 
+use App\Http\Controllers\UserController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +30,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function() {
     Route::resource('reports', ReportController::class);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
     Route::get('/reports/form', [ReportController::class, 'form']);
+    //Route::get('/users/form', [UserController::class, 'form']);
 });

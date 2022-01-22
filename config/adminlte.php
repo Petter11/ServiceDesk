@@ -230,13 +230,48 @@ return [
         [
             'text'         => 'Reports',
             'url'         => '/reports',
-            'icon' => 'fas fa-newspaper',
+            'icon' => 'fas fa-bug',
         ],
         [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
+            'text' => 'Perfil',
+            'url'  => 'home',
+            'icon' => 'fas fa-house-user',
+        ],
+        [
+            'text' => 'Dashboard',
+            'url'  => 'dashboard',
+            'icon' => 'fas fa-tachometer-alt',
+            'can'  => 'is_admin',
+        ],
+        [
+            'text'        => 'Reports',
+            'url'         => 'reports/list',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 1,
+            'label_color' => 'success',
+            'can'  => 'is_admin',
+
+        ],
+        [
+            'can'  => 'is_admin',
+            'text' => 'Cadastros',
+            'icon'    => 'fas fa-fw fa-plus',
+            'submenu' => [
+                [
+                    'text' => 'Bugs',
+                    'icon'    => 'fas fa-fw fa-bug',
+                    'url'  => 'reports/list',
+                ],
+                [
+                    'text' => 'Usuário',
+                    'icon'    => 'fas fa-fw fa-user',
+                    'url'  => '#',
+                ],
+            ],
         ],
 
+        
+        /*
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
@@ -251,7 +286,7 @@ return [
             'text'        => 'pages',
             'url'         => 'reports/list',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'label'       => 1,
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
@@ -266,43 +301,22 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Cadastros',
+            'icon'    => 'fas fa-fw fa-plus',
             'submenu' => [
                 [
-                    'text' => 'level_one',
+                    'text' => 'Bugs',
+                    'icon'    => 'fas fa-fw fa-bug',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
+                    'text' => 'Usuário',
+                    'icon'    => 'fas fa-fw fa-user',
                     'url'  => '#',
                 ],
             ],
         ],
+        /*
         ['header' => 'labels'],
         [
             'text'       => 'important',
@@ -319,6 +333,7 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
+        */
     ],
 
     /*

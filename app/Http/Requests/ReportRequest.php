@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ReportRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class ReportRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,24 +26,25 @@ class ReportRequest extends FormRequest
     {
         return [
             'titulo' => 'required',
-            'conteudo' => 'required',
+            'descricao' => 'required',
+            'classe' => 'required',
             'status' => [
                 'required',
                 Rule::in(['A', 'E', 'C'])
             ],
-            'imagem' => 'nullable|image'
+            'imagem' => 'required|image'
         ];
     }
 
-    public function messagens()
+    public function messages()
     {
         return [
-            'titulo.required' => 'O campo título é obrigatório',
-            'descricao.required' => 'O campo conteúdo é obrigatório',
-            'classe.required' => 'O campo classe é obrigatório',
-            'status.required' => 'O campo status é obrigatório',
+            'titulo.required' => 'O campo Título é obrigatório',
+            'descricao.required' => 'O campo Descrição é obrigatório',
+            'classe.required' => 'O campo Classe é obrigatório',
+            'status.required' => 'O campo Status é obrigatório',
             'imagem.image' => 'O campo imagem deve ser preenchido com uma imagem',
-            'status.in' => 'O status só pode ser Ativo ou Inativo' 
+            'status.in' => 'O status só pode ser Aguardando, Em correção ou Corrigido' 
         ];
     }
 }

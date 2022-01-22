@@ -11,6 +11,7 @@
     @stop
 
     @section('content')
+
     <div class="container pt-5">
         @if(session()->has('mensagem'))
         <div class="alert alert-success">
@@ -28,8 +29,7 @@
             </ul>
         </div>
         @endif
-
-
+        
         @if (isset($report))
         <form action="/reports/{{ $report->id }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
@@ -62,7 +62,6 @@
                 <div class="form-group">
                     <label for="classe">Classificação</label>
                     <select name="classe" class="form-control">
-                        <option valeu="">Selecione</option>
                         <option value="VISUAL"
                             {{ isset($report) && $report->classe == "VISUAL" ? "selected='selected'" : ""}}>VISUAL
                         </option>
@@ -96,7 +95,6 @@
                 <button type="submit" class="btn btn-primary">Salvar</button>
 
             </form>
-    </div>
     </div>
     </div>
     @stop

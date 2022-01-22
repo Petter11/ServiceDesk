@@ -16,11 +16,11 @@ class ReportSeeder extends Seeder
     public function run()
     {
         Report::create([
-            "titulo" => "TRAVAMENTO SONORO",
+            "titulo" => "TRAVAMENTO VISUAL",
             "descricao" => "Ao tentar realizar uma tal atividade o sistema emite um sinal sonoro que so para quando reinicia",
-            "classe" => "SONORO",
+            "classe" => "glitch",
             "status" => "A",
-            "imagem" => "/storage/2021-07-07t134451z-9950647-rc2pfo9vq1no-rtrmadp-3-pope-surgery-suffering.jpg",
+            "imagem" => "/home/pedro/Downloads/print_screen.png",
             "user_id" => null, 
         ]);
     }

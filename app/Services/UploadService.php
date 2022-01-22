@@ -4,9 +4,9 @@ namespace App\Services;
 
 class UploadService
 {
-    public static function upload($arquivo)
+    public static function upload($request)
     {
-        $arquivo->storeAs('public', $arquivo->getClientOriginalName());
-        return '/storage/' . $arquivo->getClientOriginalName();
+        $request->imagem->storeAs('public', $request->imagem->getClientOriginalName());
+        return '/storage/' . $request->imagem->getClientOriginalName();
     } 
 }

@@ -11,8 +11,8 @@ class Report extends Model
 
 
     const STATUS_AGUARDANDO = "A";
-    const STATUS_CORRECAO = "E";
-    const STATUS_CORRIGIDO = "C";
+    const STATUS_CORRECAO   = "E";
+    const STATUS_CORRIGIDO  = "C";
     const STATUS = [
         Report::STATUS_AGUARDANDO => "Aguardando",
         Report::STATUS_CORRECAO => "Em correcao",
@@ -27,5 +27,10 @@ class Report extends Model
     public function getStatusFormatadoAttribute()
     {
         return Report::STATUS[$this->status];
+    }
+
+    public function categorias()
+    {
+        return $this->belongsToMany(Categoria::class, 'reports_categorias', 'report_id');
     }
 }
