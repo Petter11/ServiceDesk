@@ -10,10 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        // $reports = Report::all();
-        // return view('reports.index', [
-        //     "reports" => $reports
-        // ]);
+        //
     }
     
     public function create()
@@ -23,18 +20,15 @@ class UserController extends Controller
 
     public function show() 
     {
-    //     $reports = Report::where('status', Report::STATUS_AGUARDANDO)->paginate(5);
-    //     return view('reports.list', [
-    //         "reports" => $reports
-    // ]);
+        //
     }
     
     public function store(User $user, UserRequest $request)
     {
-        $dados = $request->all();          //PEGANDO DADOS DO FORMULARIO
-        User::create($dados);             //CADASTRANDO OS DADOS
+        $dados = $request->all();          
+        User::create($dados);
     
-        return redirect()->back()->with(['mensagem'=> 'Registro criado com sucesso!']);//REDIRECIONANDO A PAGINA, VAI VOLTAR PARA A LISTAGEM
+        return redirect()->back()->with(['mensagem'=> 'Registro criado com sucesso!']);
     }
     
     public function edit(User $user)
