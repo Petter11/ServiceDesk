@@ -31,10 +31,10 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        $this->authorize('is_admin'); //So mostra se for Admin
+        $this->authorize('is_admin');
 
 
-        $user_counters = new stdClass; // Cria um objeto com os contadores trazendo do banco de dados os registros
+        $user_counters = new stdClass;
         $user_counters->all_users = $this->user->all()->count();
         $user_counters->actived_users = $this->user->where('status','actived')->count();
         $user_counters->pre_registred_users = $this->user->where('status','pre_registred')->count();
